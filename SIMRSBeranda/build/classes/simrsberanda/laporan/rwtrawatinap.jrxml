@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9d25a09-16ad-4836-9e3b-caba13269881">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     rawat_inap.`kd_rawat_inap` AS rawat_inap_kd_rawat_inap,
+     rawat_inap.`kd_pasien` AS rawat_inap_kd_pasien,
+     rawat_inap.`tgl_masuk` AS rawat_inap_tgl_masuk,
+     rawat_inap.`kd_ruang` AS rawat_inap_kd_ruang,
+     rawat_inap.`kd_dokter` AS rawat_inap_kd_dokter,
+     rawat_inap.`tgl_keluar` AS rawat_inap_tgl_keluar,
+     rawat_inap.`status_rawat_inap` AS rawat_inap_status_rawat_inap,
+     ruang.`nama_ruang` AS ruang_nama_ruang,
+     ruang.`kelas` AS ruang_kelas,
+     ruang.`status_ruang` AS ruang_status_ruang,
+     dokter.`nama_dokter` AS dokter_nama_dokter,
+     pasien.`nama_pasien` AS pasien_nama_pasien,
+     pasien.`alamat_pasien` AS pasien_alamat_pasien
+FROM
+     `pasien` pasien INNER JOIN `rawat_inap` rawat_inap ON pasien.`kd_pasien` = rawat_inap.`kd_pasien`
+     INNER JOIN `ruang` ruang ON rawat_inap.`kd_ruang` = ruang.`kd_ruang`
+     INNER JOIN `dokter` dokter ON rawat_inap.`kd_dokter` = dokter.`kd_dokter`
+where status_rawat_inap="Y"]]>
+	</queryString>
+	<field name="rawat_inap_kd_rawat_inap" class="java.lang.String"/>
+	<field name="rawat_inap_kd_pasien" class="java.lang.String"/>
+	<field name="rawat_inap_tgl_masuk" class="java.sql.Date"/>
+	<field name="rawat_inap_kd_ruang" class="java.lang.String"/>
+	<field name="rawat_inap_kd_dokter" class="java.lang.String"/>
+	<field name="rawat_inap_tgl_keluar" class="java.sql.Date"/>
+	<field name="rawat_inap_status_rawat_inap" class="java.lang.String"/>
+	<field name="ruang_nama_ruang" class="java.lang.String"/>
+	<field name="ruang_kelas" class="java.lang.String"/>
+	<field name="ruang_status_ruang" class="java.lang.String"/>
+	<field name="dokter_nama_dokter" class="java.lang.String"/>
+	<field name="pasien_nama_pasien" class="java.lang.String"/>
+	<field name="pasien_alamat_pasien" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7872a7e2-70c1-471b-9d1b-06be719b801d" x="1" y="21" width="189" height="32"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Charlie Hospital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="594161e6-95b8-4bab-a445-dee67e091d31" x="1" y="53" width="189" height="41"/>
+				<textElement/>
+				<text><![CDATA[Jln raya semarang No.1, Gowok  Ngabean, Boja, Kabupaten Kendal, Jawa Tengah 51381]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="30b7e000-2c72-4ae2-9584-3fb9b1e9e4ae" x="425" y="11" width="120" height="95"/>
+				<imageExpression><![CDATA[getClass().getResource("simrsberanda/laporan/charlie1.jpg").openStream()]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="31265de6-627f-475d-ba62-9f2eb7bb3946" x="0" y="62" width="21" height="20"/>
+				<textElement/>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="69ad22c4-3e82-4a0f-8476-3820ad2d9a8d" x="232" y="62" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tgl.Masuk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a8d822ec-5ebb-4a68-8216-e153d84d688d" x="108" y="62" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a5f7b7cb-61bd-44f5-8944-73fd7c462f52" x="294" y="62" width="35" height="20"/>
+				<textElement/>
+				<text><![CDATA[Ruang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="269b99da-5817-44a2-9b93-be37f9fceb2f" x="419" y="62" width="39" height="20"/>
+				<textElement/>
+				<text><![CDATA[Dokter]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a137b143-1320-4dba-93e7-13ffd7914b94" x="40" y="62" width="57" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kd. Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="571150a7-8e59-4c69-b251-a0ae00c1fd92" x="350" y="62" width="59" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="f563d8cd-048e-43d6-8f47-e5779d8e8e1f" x="0" y="52" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="f563d8cd-048e-43d6-8f47-e5779d8e8e1f" x="0" y="81" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e736d08a-1184-4d28-991f-cca9f84b8517" x="118" y="10" width="291" height="43"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Daftar Pasien Rawat Inap]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="2" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2ea97585-1fda-477f-a3ee-01097f630e21" x="40" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rawat_inap_kd_pasien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2619993c-b896-4fcd-af9b-ae120a0a144d" x="108" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pasien_nama_pasien}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="daca4eca-8fb4-4207-9bab-8f105b16959c" x="232" y="0" width="53" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{rawat_inap_tgl_masuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e04f662a-cf49-49e3-996a-53b00b175976" x="294" y="0" width="56" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ruang_nama_ruang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fe3835d5-88b6-4a78-80c1-850ffcc8fa13" x="350" y="0" width="59" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ruang_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0d3cec7c-8ed4-4f4b-bd6c-c47fb18dc9e7" x="419" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{dokter_nama_dokter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3df1e0a9-4d11-4350-ad77-452eafc6f9b1" x="1" y="0" width="30" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement uuid="3f58d4e7-bc19-40e4-b46f-033de3e0aece" x="1" y="11" width="554" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="45268804-3e7b-4bd4-8594-7a94d3346bae" x="445" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

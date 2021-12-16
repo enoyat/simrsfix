@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="136474fc-4439-463e-a076-74bd88b50518">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     perawat.`kd_perawat` AS perawat_kd_perawat,
+     perawat.`nama_perawat` AS perawat_nama_perawat,
+     perawat.`alamat_perawat` AS perawat_alamat_perawat
+FROM
+     `perawat` perawat]]>
+	</queryString>
+	<field name="perawat_kd_perawat" class="java.lang.String"/>
+	<field name="perawat_nama_perawat" class="java.lang.String"/>
+	<field name="perawat_alamat_perawat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="139" splitType="Stretch">
+			<image>
+				<reportElement uuid="28a27977-8d62-4221-af25-3cdd87487aab" x="2" y="0" width="132" height="132"/>
+				<imageExpression><![CDATA[getClass().getResource("simrsberanda/laporan/charlie1.jpg").openStream()]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement uuid="db4d4cae-bbe8-4caa-99a1-402dbae3048e" mode="Opaque" x="134" y="0" width="421" height="95" backcolor="#00C2EA"/>
+				<staticText>
+					<reportElement uuid="6ee9f773-ac03-471c-ad45-99b5108d1098" style="Title" x="12" y="11" width="269" height="49"/>
+					<textElement>
+						<font size="36" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Charlie Hospital]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9a8e5811-48e7-4214-ba28-5661ce44676f" style="SubTitle" x="12" y="47" width="302" height="33" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Microsoft Sans Serif" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Informasi Perawat RS. Charlie]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="6462cd8f-a1d2-4b75-b0b7-a0a9021ef661" x="314" y="60" width="105" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="469b7bf0-e588-4921-b166-264e6a4987b2" style="Column header" x="0" y="56" width="185" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode Perawat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1522a627-1ddf-4267-a9e1-0aec80c0a4d8" style="Column header" x="185" y="56" width="185" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Perawat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="07610fd6-e429-4953-8efe-e68ee7a1c5cf" style="Column header" x="370" y="56" width="171" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Alamat Perawat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement uuid="fc898865-2bf2-417d-9377-c8c74fdf2dff" style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="601e4ef9-76ce-456b-bd7c-bdeb5fe6efa8" style="Detail" positionType="Float" x="0" y="0" width="185" height="18"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{perawat_kd_perawat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="9c290e5d-26b3-4e82-9c3a-5cee3bb6cd01" style="Detail" positionType="Float" x="185" y="0" width="185" height="18"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{perawat_nama_perawat}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="c90daefa-9d8d-47b1-b06b-0234dae7b3b5" style="Detail" positionType="Float" x="370" y="0" width="185" height="18"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{perawat_alamat_perawat}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement uuid="614fc306-cf0c-4f8e-830f-2716abeb32e7" x="2" y="0" width="553" height="1"/>
+					<graphicElement>
+						<pen lineWidth="2.0"/>
+					</graphicElement>
+				</line>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="cac256bc-09ae-4eee-92a0-1e59efe03aa4" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="51" splitType="Stretch">
+			<frame>
+				<reportElement uuid="60a79da6-5b67-4c6e-9f18-5f6acd8e22a1" mode="Opaque" x="0" y="1" width="555" height="50" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="3af247ef-50f0-4d8e-bd0a-633ce13dde83" style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="68352617-1f08-4ca1-a373-d3f449a6d14b" style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="b6c92975-58fd-43d9-81bd-b3f247a3d0a8" style="Column header" x="2" y="1" width="110" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="6c29ceec-ba3f-4a0b-a6a6-90e81ba50439" x="214" y="1" width="183" height="20" forecolor="#FFFFFF"/>
+					<textElement/>
+					<text><![CDATA[Copright@RumahSakit_Charlie 2019]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

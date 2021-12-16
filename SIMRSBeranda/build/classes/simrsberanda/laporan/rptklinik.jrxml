@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="45dcb893-181b-43c5-bc01-520c335edd3e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString>
+		<![CDATA[SELECT
+     klinik.`kd_klinik` AS klinik_kd_klinik,
+     klinik.`nama_klinik` AS klinik_nama_klinik
+FROM
+     `klinik` klinik
+where tampil="Y"]]>
+	</queryString>
+	<field name="klinik_kd_klinik" class="java.lang.String"/>
+	<field name="klinik_nama_klinik" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="847a9b81-f77e-48d5-933a-ebb2228739a7" x="175" y="13" width="380" height="85" forecolor="#5ABDF6" backcolor="#00C2EA"/>
+			</rectangle>
+			<image>
+				<reportElement uuid="af7bd331-2c7d-4dad-b264-77eb8418ac08" x="10" y="13" width="155" height="72"/>
+				<imageExpression><![CDATA[getClass().getResource("simrsberanda/laporan/charlie1.jpg").openStream()]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="0510a960-095a-4090-a553-306e4c43f346" x="427" y="112" width="126" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b70e4bea-d2c0-43c6-95fb-71e426e89db6" x="185" y="45" width="329" height="40" forecolor="#FFFFFF"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informasi Klinik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4d7e8d34-0884-42be-8d99-49e2df552548" x="185" y="13" width="328" height="45" forecolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Times New Roman" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Charlie Hospital]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0f3448e0-5953-44cd-8185-3da5ac6668c5" style="Column header" x="0" y="7" width="277" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode Klinik]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0270aa72-98bd-4058-bc50-9a63f6ddcd1c" style="Column header" x="277" y="7" width="277" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama Klinik]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5893a56a-bf3c-4fd5-9053-c8425d2bc9fc" x="2" y="24" width="551" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement uuid="7a153bea-86c3-4f7d-8839-5bd4e268cfc0" style="Row" mode="Opaque" x="0" y="0" width="555" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="0a943721-6394-4f41-9937-fdf4e835c2d2" style="Detail" positionType="Float" x="0" y="0" width="277" height="18"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{klinik_kd_klinik}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="1d3dca40-c62a-4ca6-880c-ceb0adfbfe3e" style="Detail" positionType="Float" x="277" y="0" width="277" height="18"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{klinik_nama_klinik}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement uuid="1dd6b75f-a973-4687-89db-2d06b0921299" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="36620b3e-0b8f-41d5-8940-362a42cff479" mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="24e0b666-6f49-426a-bfe8-2f09dc85bfec" style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="eba57739-af6f-4b08-be7f-1dd8f36fdb07" style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="1e5fb8a6-3c3b-46bd-98bd-5cb7de62ec86" style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="800" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="2f3826f2-6c75-4627-a501-e5280a7393be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="kd_resep" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     resep_item_rawatinap.`kd_resep_item` AS resep_item_rawatinap_kd_resep_item,
+     resep_item_rawatinap.`kd_resep` AS resep_item_rawatinap_kd_resep,
+     resep_item_rawatinap.`kd_obat` AS resep_item_rawatinap_kd_obat,
+     resep_item_rawatinap.`harga` AS resep_item_rawatinap_harga,
+     resep_item_rawatinap.`qty` AS resep_item_rawatinap_qty,
+     resep_item_rawatinap.`jumlah` AS resep_item_rawatinap_jumlah,
+     resep_item_rawatinap.`diskon` AS resep_item_rawatinap_diskon,
+     resep_item_rawatinap.`total` AS resep_item_rawatinap_total,
+     resep_item_rawatinap.`aturan_pakai` AS resep_item_rawatinap_aturan_pakai,
+     resep_item_rawatinap.`waktuminum` AS resep_item_rawatinap_waktuminum,
+     resep_rawatinap.`kd_resep` AS resep_rawatinap_kd_resep,
+     resep_rawatinap.`tgl_resep` AS resep_rawatinap_tgl_resep,
+     resep_rawatinap.`kd_rawat_inap` AS resep_rawatinap_kd_rawat_inap,
+     resep_rawatinap.`kd_pasien` AS resep_rawatinap_kd_pasien,
+     resep_rawatinap.`status_bayar` AS resep_rawatinap_status_bayar,
+     resep_rawatinap.`uang` AS resep_rawatinap_uang,
+     resep_rawatinap.`status_ambil` AS resep_rawatinap_status_ambil,
+     resep_rawatinap.`item` AS resep_rawatinap_item,
+     pasien.`kd_pasien` AS pasien_kd_pasien,
+     pasien.`nama_pasien` AS pasien_nama_pasien,
+     pasien.`jenis` AS pasien_jenis,
+     pasien.`tempat` AS pasien_tempat,
+     pasien.`tgl_lahir` AS pasien_tgl_lahir,
+     pasien.`alamat_pasien` AS pasien_alamat_pasien,
+     pasien.`tgl_daftar` AS pasien_tgl_daftar,
+     pasien.`gol_darah` AS pasien_gol_darah,
+     pasien.`pekerjaan` AS pasien_pekerjaan,
+     pasien.`namaorangtua` AS pasien_namaorangtua,
+     pasien.`telpon` AS pasien_telpon,
+     pasien.`agama` AS pasien_agama,
+     pasien.`status` AS pasien_status,
+     pasien.`kd_asuransi` AS pasien_kd_asuransi,
+     pasien.`noasuransi` AS pasien_noasuransi,
+     obat.`kd_obat` AS obat_kd_obat,
+     obat.`nama_obat` AS obat_nama_obat,
+     obat.`golongan` AS obat_golongan,
+     obat.`satuan` AS obat_satuan,
+     obat.`harga` AS obat_harga
+FROM
+     `resep_rawatinap` resep_rawatinap INNER JOIN `resep_item_rawatinap` resep_item_rawatinap ON resep_rawatinap.`kd_resep` = resep_item_rawatinap.`kd_resep`
+     INNER JOIN `pasien` pasien ON resep_rawatinap.`kd_pasien` = pasien.`kd_pasien`
+     INNER JOIN `obat` obat ON resep_item_rawatinap.`kd_obat` = obat.`kd_obat`
+where resep_item_rawatinap.kd_resep=$P{kd_resep}]]>
+	</queryString>
+	<field name="resep_item_rawatinap_kd_resep_item" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_kd_resep" class="java.lang.String"/>
+	<field name="resep_item_rawatinap_kd_obat" class="java.lang.String"/>
+	<field name="resep_item_rawatinap_harga" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_qty" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_jumlah" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_diskon" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_total" class="java.lang.Integer"/>
+	<field name="resep_item_rawatinap_aturan_pakai" class="java.lang.String"/>
+	<field name="resep_item_rawatinap_waktuminum" class="java.lang.String"/>
+	<field name="resep_rawatinap_kd_resep" class="java.lang.String"/>
+	<field name="resep_rawatinap_tgl_resep" class="java.sql.Date"/>
+	<field name="resep_rawatinap_kd_rawat_inap" class="java.lang.String"/>
+	<field name="resep_rawatinap_kd_pasien" class="java.lang.String"/>
+	<field name="resep_rawatinap_status_bayar" class="java.lang.String"/>
+	<field name="resep_rawatinap_uang" class="java.lang.Integer"/>
+	<field name="resep_rawatinap_status_ambil" class="java.lang.String"/>
+	<field name="resep_rawatinap_item" class="java.lang.String"/>
+	<field name="pasien_kd_pasien" class="java.lang.String"/>
+	<field name="pasien_nama_pasien" class="java.lang.String"/>
+	<field name="pasien_jenis" class="java.lang.String"/>
+	<field name="pasien_tempat" class="java.lang.String"/>
+	<field name="pasien_tgl_lahir" class="java.sql.Date"/>
+	<field name="pasien_alamat_pasien" class="java.lang.String"/>
+	<field name="pasien_tgl_daftar" class="java.sql.Date"/>
+	<field name="pasien_gol_darah" class="java.lang.String"/>
+	<field name="pasien_pekerjaan" class="java.lang.String"/>
+	<field name="pasien_namaorangtua" class="java.lang.String"/>
+	<field name="pasien_telpon" class="java.lang.String"/>
+	<field name="pasien_agama" class="java.lang.String"/>
+	<field name="pasien_status" class="java.lang.String"/>
+	<field name="pasien_kd_asuransi" class="java.lang.String"/>
+	<field name="pasien_noasuransi" class="java.lang.String"/>
+	<field name="obat_kd_obat" class="java.lang.String"/>
+	<field name="obat_nama_obat" class="java.lang.String"/>
+	<field name="obat_golongan" class="java.lang.String"/>
+	<field name="obat_satuan" class="java.lang.String"/>
+	<field name="obat_harga" class="java.lang.Integer"/>
+	<variable name="resep_item_total_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="resep_item_diskon_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="resep_item_total_2" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="resep_item_rawatinap_total_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{resep_item_rawatinap_total}]]></variableExpression>
+	</variable>
+	<group name="resep_item_kd_resep">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="594161e6-95b8-4bab-a445-dee67e091d31" x="10" y="52" width="189" height="41"/>
+				<textElement/>
+				<text><![CDATA[Jln raya semarang No.1, Gowok  Ngabean, Boja, Kabupaten Kendal, Jawa Tengah 51381]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7872a7e2-70c1-471b-9d1b-06be719b801d" x="10" y="20" width="189" height="32"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Charlie Hospital]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="30b7e000-2c72-4ae2-9584-3fb9b1e9e4ae" x="434" y="10" width="120" height="95"/>
+				<imageExpression><![CDATA[getClass().getResource("simrsberanda/laporan/charlie1.jpg").openStream()]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="2758811f-0329-4fa7-9b75-ae8fbb3d2afc" x="170" y="0" width="210" height="35"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Farmasi]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="116" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="370" y="25" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[Tgl. Faktur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="9" y="40" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="9" y="0" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[No. Resep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="9" y="94" width="36" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="caf1e369-7095-470f-a1df-ba983c919178" x="443" y="94" width="30" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="69bfd49e-d20f-453c-bcd8-1084af8f6e73" x="386" y="94" width="41" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Disk.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9083d5af-3013-4cf4-84b9-83e915b2cefc" x="157" y="94" width="51" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc3eccc3-c782-419b-b3f0-b4ba5563e19f" x="260" y="94" width="30" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ac628fcf-ca0f-41ad-8043-63731ada08e7" x="505" y="94" width="24" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Ket.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="53ac835d-1830-4bed-964c-78973553556b" x="0" y="113" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="19c8c0f8-6224-41eb-9605-fcc06b91a5b3" x="343" y="94" width="30" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a57a42a4-beff-4659-a0e5-e85151e376be" x="57" y="94" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Obat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="370" y="1" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[Kode Reg.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="ec84d85b-59e3-4470-86ff-bf36f511eaf8" x="0" y="87" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="88dec6c7-6889-4fdd-bb16-8cce0684425a" x="224" y="94" width="25" height="10"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[QTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="10" y="60" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c130dee1-e45b-43f5-ab0f-6eb7bb79aacb" x="10" y="20" width="63" height="20"/>
+				<textElement/>
+				<text><![CDATA[No. Pasien]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4d650834-d5e8-4bb1-bb8a-70550fdc31b9" x="83" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_kd_resep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6f26a598-ec3c-4fcc-b766-975807674b85" x="83" y="20" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resep_rawatinap_kd_pasien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6f0aae75-2cc7-49f8-8538-9e8ce8fe542b" x="83" y="40" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pasien_nama_pasien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7f13b538-ecd4-4664-8a23-b323a09816bd" x="83" y="60" width="260" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{pasien_alamat_pasien}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="caf1a088-e7f5-456b-a249-3e53a9ce7303" x="443" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resep_rawatinap_kd_rawat_inap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bbd291fd-0e82-4d3f-92ab-c870263b4b9f" x="443" y="25" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{resep_rawatinap_tgl_resep}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="17">
+			<textField>
+				<reportElement uuid="3dab43a9-848f-441b-93cd-895f5d0e4c91" x="9" y="0" width="36" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_kd_obat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b2ddc53b-636a-4321-a6db-7c20753a2ff1" x="57" y="0" width="100" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obat_nama_obat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement uuid="ebf80004-99aa-4f34-8ffe-ef0a73b5d96a" x="163" y="0" width="45" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="33efa9c5-6a25-41d2-ac36-2348b9cfbc2b" x="219" y="0" width="30" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71910b4e-4332-4931-864c-f851ada63bbb" x="386" y="0" width="21" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_diskon}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement uuid="87d73cc3-d92b-4fc7-9893-7ee8d3652c99" x="323" y="0" width="50" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement uuid="17671c6c-a221-4a19-aefa-2f2ea93b8b58" x="425" y="0" width="48" height="14"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resep_item_rawatinap_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="89357c59-b514-4509-a4a4-1a7b779f6ee5" x="260" y="0" width="49" height="14"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{obat_satuan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="175" splitType="Stretch">
+			<line>
+				<reportElement uuid="c8172609-1466-4957-9d12-c14b7a69f9a3" x="0" y="4" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="af1eeed6-95f5-4af4-b047-24893f6f4255" x="309" y="4" width="71" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Jumlah Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff0902ab-0c44-4aca-a72e-d0b187a6968c" x="373" y="79" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Bagian Farmasi,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c36a052d-5742-468c-b0e8-1465c0659361" x="373" y="134" width="112" height="20"/>
+				<textElement/>
+				<text><![CDATA[( ............................... )]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement uuid="5b269d33-6fbc-43e6-92be-aa491825dafd" x="385" y="5" width="88" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{resep_item_rawatinap_total_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="4" splitType="Stretch"/>
+	</summary>
+</jasperReport>
